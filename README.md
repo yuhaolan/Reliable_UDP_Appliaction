@@ -1,4 +1,8 @@
 # Reliable_UDP_Appliaction
+•This project has two programs: sever and client.
+•The server should listen on a UDP socket, then begin sending chunks of a specific file over UDP when client initiates a download. The client should then save a copy of the file when it is done receiving the chunks.
+•Because UDP is connectionless and unreliable, I implement parallel programming to allow multiple clients to download simultaneously. And I use stop and wait protocol to rearranged chunks. Besides, I set timer for each packet to recover from lost.
+------------------------------------------------------------------------------------------------------------------------------
 I have designed an application that is based on UDP model. But at application layer, I add packet check to ensure the reliability of UDP. 
 
 I use stop and wait protocol to make sure each packet has been sent and received successfully. That is, the next packet should be sent until the server receive the former packet. The server will send back the message to tell client that it receive the former packet. Thus the client will send the next packet.
